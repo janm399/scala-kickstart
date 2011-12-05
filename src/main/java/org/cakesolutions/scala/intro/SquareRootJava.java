@@ -3,7 +3,7 @@ package org.cakesolutions.scala.intro;
 /**
  * @author janmachacek
  */
-public class SquareRoot {
+public class SquareRootJava {
 
 	private static double sqrt(double x) {
 		double guess = 1;
