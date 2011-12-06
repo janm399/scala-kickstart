@@ -15,10 +15,10 @@ object Functions {
   def curry(i: Int)(j: Int) = i * j
   
   def main(args: Array[String]) {
-    //val f: Double => Double = (d: Double) => d * d
+    // val f: Double => Double = (d: Double) => d * d
     val f = (x: Double, y: Double) => x * y
-    val fWithXEq5 = f(5, _)
-    val oneTimeX = curry(1)
+    val fWithXEq5 = f(5, _: Double)
+    val oneTimeX = curry(1)_
     
     println(fWithXEq5(3))
     println(curry(1)(2))
