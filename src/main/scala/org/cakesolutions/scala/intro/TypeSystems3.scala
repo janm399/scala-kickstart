@@ -39,7 +39,7 @@ object TypeSystems3 {
 
     new Feeder(new Cat).feed(new CatFood)
     new Feeder(new Cat).feed(new LuxuryCatFood)
-    new Feeder(new SpeakingCat).feed(new DogFood)
+    // new Feeder(new SpeakingCat).feed(new DogFood)
   }
   
 }
