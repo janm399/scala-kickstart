@@ -1,7 +1,6 @@
 package org.cakesolutions.scala.intro
 
 import com.sun.speech.freetts.VoiceManager
-import org.cakesolutions.scala.intro.Composition.{Dog, Cat}
 
 /**
  * @author janmachacek
@@ -30,13 +29,18 @@ object Composition {
   class Cat extends Animal {
     def sound = "Meow"
   }
+  class SpeakingCat extends Cat with Speakable 
   
   def main(args: Array[String]) {
     val cat = new Cat with Speakable
     val dog = new Dog with Speakable
+    val muteDog = new Dog
+    val speakingCat = new SpeakingCat
 
-    cat.speak
-    dog.speak
+    cat.speak()
+    dog.speak()
+    speakingCat.speak()
+    // muteDog.speak()
   }
 
 }
