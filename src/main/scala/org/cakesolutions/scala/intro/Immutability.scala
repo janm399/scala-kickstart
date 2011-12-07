@@ -15,7 +15,7 @@ object Immutability {
     // j = 3
 
     val ii = Set(1, 2, 3)
-    ii += 5
+    //ii += 5
     val mi = collection.mutable.Set(1, 2, 3)
     mi += 5
 
