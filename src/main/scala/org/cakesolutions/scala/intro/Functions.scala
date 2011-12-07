@@ -1,11 +1,8 @@
 package org.cakesolutions.scala.intro
 
-import org.cakesolutions.scala.intro.Functions.Multiple
-
 /**
  * @author janmachacek
  */
-
 object Functions {
 
   class Multiple(howMany: Int) {
@@ -13,6 +10,8 @@ object Functions {
   }
   
   def curry(i: Int)(j: Int) = i * j
+
+  def nonPure = math.rint(100)
   
   def main(args: Array[String]) {
     // val f: Double => Double = (d: Double) => d * d
