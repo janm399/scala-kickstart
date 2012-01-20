@@ -1,5 +1,8 @@
 package org.cakesolutions.scala.intro
 
+import org.cakesolutions.scala.intro.TypeSystems3.{LuxuryCatFood, DogFood}
+
+
 /**
  * @author janmachacek
  */
@@ -30,6 +33,10 @@ object TypeSystems3 {
   }
   
   def main(args: Array[String]) {
+    def feed[A <: Animal, F <: A#SuitableFood](animal: A, food: F) =
+      "Fed " + food + " to " + animal
+    
+    
     val cats = new Zoo().add(new Cat)
 
     val s1: Zoo[Cat] = cats
@@ -40,6 +47,8 @@ object TypeSystems3 {
     new Feeder(new Cat).feed(new CatFood)
     new Feeder(new Cat).feed(new LuxuryCatFood)
     // new Feeder(new SpeakingCat).feed(new DogFood)
+    
+    println(feed(new Cat, new LuxuryCatFood))
   }
-  
+
 }
