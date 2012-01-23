@@ -8,6 +8,7 @@
 			    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
 			    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+	<context:spring-configured />
 	<context:load-time-weaver aspectj-weaving="on" />
 	<context:component-scan base-package="org.cakesolutions.scala.services"/>
 	<jdbc:embedded-database id="dataSource"/>
