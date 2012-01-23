@@ -1,11 +1,22 @@
 package org.cakesolutions.scala.web
 
 import org.springframework.stereotype.Controller
+import org.cakesolutions.scala.services.EntityService
+import org.springframework.beans.factory.annotation.Autowired
+import org.cakesolutions.scala.domain.{Page, User}
+import org.springframework.web.bind.annotation.{ModelAttribute, RequestMethod, RequestMapping}
+import org.springframework.transaction.annotation.Transactional
 
 /**
  * @author janmachacek
  */
 @Controller
-class HomeController {
+class HomeController @Autowired() (private val entityService: EntityService) {
+  implicit val everything = Page(0, Int.MaxValue)
+
+  @RequestMapping(value = Array("/users"), method = Array(RequestMethod.GET))
+  @ModelAttribute
+  @ViewName("/users")
+  def users = entityService.find[User]
 
 }

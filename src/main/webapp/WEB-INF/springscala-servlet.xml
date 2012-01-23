@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="org.cakesolutions.scala.web"/>
+	<mvc:annotation-driven/>
+
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="customReturnValueHandlers">
+			<list>
+				<bean class="org.cakesolutions.scala.web.AnnotatedViewNameMethodReturnValueHandler"/>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"/>
+
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
+		  p:basename="messages"/>
+
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsps/en_GB/"
+		  p:suffix=".jsp" p:order="2"/>
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:prefix="/WEB-INF/jsps/en_GB/"
+		  p:suffix=".jsp" p:order="3" p:viewClass="org.springframework.web.servlet.view.JstlView"/>
+
+</beans>

@@ -1,0 +1,11 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+	<weaver options="-verbose -debug -showWeaveInfo">
+		<include within="org.cakesolutions..*"/>
+		<dump within="org.cakesolutions..*"/>
+	</weaver>
+	<aspects>
+		<aspect name="org.springframework.transaction.aspectj.AnnotationTransactionAspect"/>
+		<aspect name="org.cakesolutions.scala.services.FooAspect"/>
+	</aspects>
+</aspectj>
