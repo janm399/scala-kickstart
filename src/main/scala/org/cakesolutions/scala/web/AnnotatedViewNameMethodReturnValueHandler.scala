@@ -10,12 +10,10 @@ import org.springframework.web.context.request.NativeWebRequest
 class AnnotatedViewNameMethodReturnValueHandler extends HandlerMethodReturnValueHandler {
 
   def supportsReturnType(returnType: MethodParameter) = {
-    println("Supports?")
     returnType.getMethodAnnotation(classOf[ViewName]) != null
   }
 
   def handleReturnValue(returnValue: AnyRef, returnType: MethodParameter, mavContainer: ModelAndViewContainer, webRequest: NativeWebRequest) {
-    println("Supports?")
     def isRedirectViewName(viewName: String) = viewName.startsWith("redirect:")
     
     val annotation = returnType.getMethodAnnotation(classOf[ViewName])

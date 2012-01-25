@@ -13,7 +13,7 @@
 		<td>Last name</td>
 		<td>&nbsp;</td>
 	</tr>
-	<c:forEach items="${users}" var="u">
+	<c:forEach items="${userList}" var="u">
 		<tr>
 			<td><c:out value="${u.id}"/></td>
 			<td><c:out value="${u.firstName}"/></td>
@@ -22,7 +22,7 @@
 		</tr>
 	</c:forEach>
 </table>
-<a href="users/add.html">Add new user</a>
+<a href="add.html">Add new user</a>
 
 </body>
 </html>

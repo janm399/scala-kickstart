@@ -9,15 +9,7 @@
 
 	<context:annotation-config/>
 	<context:component-scan base-package="org.cakesolutions.scala.web"/>
-
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-		<property name="customReturnValueHandlers">
-			<list>
-				<bean class="org.cakesolutions.scala.web.AnnotatedViewNameMethodReturnValueHandler"/>
-			</list>
-		</property>
-	</bean>
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+	<mvc:annotation-driven/>
 
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"/>
 
