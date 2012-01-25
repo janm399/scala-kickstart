@@ -5,7 +5,6 @@ import org.cakesolutions.scala.services.EntityService
 import org.springframework.beans.factory.annotation.Autowired
 import org.cakesolutions.scala.domain.{Page, User}
 import org.springframework.web.bind.annotation.{ModelAttribute, RequestMethod, RequestMapping}
-import org.springframework.transaction.annotation.Transactional
 
 /**
  * @author janmachacek
@@ -19,4 +18,6 @@ class HomeController @Autowired() (private val entityService: EntityService) {
   @ViewName("/users")
   def users = entityService.find[User]
 
+  @RequestMapping(value = Array("/"), method = Array(RequestMethod.GET))
+  def home = "home"
 }

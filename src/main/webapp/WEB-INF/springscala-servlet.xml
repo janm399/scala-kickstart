@@ -9,7 +9,6 @@
 
 	<context:annotation-config/>
 	<context:component-scan base-package="org.cakesolutions.scala.web"/>
-	<mvc:annotation-driven/>
 
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="customReturnValueHandlers">
@@ -25,10 +24,7 @@
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
 		  p:basename="messages"/>
 
-	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="1"/>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsps/en_GB/"
-		  p:suffix=".jsp" p:order="2"/>
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:prefix="/WEB-INF/jsps/en_GB/"
-		  p:suffix=".jsp" p:order="3" p:viewClass="org.springframework.web.servlet.view.JstlView"/>
+		  p:suffix=".jsp"/>
 
 </beans>

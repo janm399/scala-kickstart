@@ -6,6 +6,5 @@
 	</weaver>
 	<aspects>
 		<aspect name="org.springframework.transaction.aspectj.AnnotationTransactionAspect"/>
-		<aspect name="org.cakesolutions.scala.services.FooAspect"/>
 	</aspects>
 </aspectj>
