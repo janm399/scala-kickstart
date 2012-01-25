@@ -15,9 +15,11 @@ class HomeController @Autowired() (private val entityService: EntityService) {
 
   @RequestMapping(value = Array("/users"), method = Array(RequestMethod.GET))
   @ModelAttribute
-  @ViewName("/users")
+  @ViewName("users")
   def users = entityService.find[User]
 
-  @RequestMapping(value = Array("/"), method = Array(RequestMethod.GET))
-  def home = "home"
+  @RequestMapping(value = Array("/index.html"), method = Array(RequestMethod.GET))
+  @ModelAttribute
+  @ViewName("home")
+  def x = "home"
 }

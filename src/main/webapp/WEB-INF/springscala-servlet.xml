@@ -24,7 +24,7 @@
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
 		  p:basename="messages"/>
 
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsps/en_GB/"
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/views/en_GB/"
 		  p:suffix=".jsp"/>
 
 </beans>
