@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory
 import org.cakesolutions.scala.domain.Page
 import org.springframework.transaction.annotation.Transactional
 
-
 /**
  * @author janmachacek
  */
