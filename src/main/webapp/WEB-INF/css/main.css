@@ -295,8 +295,11 @@ input.very_long {
 	width: 50em;
 }
 
-input.button.delete {
+form[name="actions"] input[type="submit"] {
+	border: 0;
+	padding: 0;
 	cursor: pointer;
 	background-color: transparent;
 	text-decoration: underline;
+	height: 10pt;
 }

@@ -20,10 +20,10 @@
 			<td><c:out value="${u.id}"/></td>
 			<td><c:out value="${u.firstName}"/></td>
 			<td><c:out value="${u.lastName}"/></td>
-			<td><a href="${u.id}.html">Edit</a>
-				<form action="${u.id}.html" method="post">
+			<td><form action="${u.id}.html" method="post" name="actions">
 					<input type="hidden" name="_method" value="delete"/>
-					<input type="submit" name="delete" value="Delete"/>
+					<input type="submit" value="Delete"/>&nbsp;
+					<a href="${u.id}.html">Edit</a>
 				</form>
 			</td>
 		</tr>
