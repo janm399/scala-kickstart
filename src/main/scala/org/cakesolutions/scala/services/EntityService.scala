@@ -11,9 +11,15 @@ import org.springframework.transaction.annotation.Transactional
  */
 @Service
 class EntityService @Autowired() (private val sessionFactory: SessionFactory) {
+  
+  @Transactional
+  def delete[T](id: Long)(implicit evidence: ClassManifest[T]) {
+    val entity = sessionFactory.getCurrentSession.load(evidence.erasure, id)
+    sessionFactory.getCurrentSession.delete(entity)
+  }
 
   @Transactional
-  def get[T](id: Serializable)(implicit evidence: ClassManifest[T]) =
+  def get[T](id: Long)(implicit evidence: ClassManifest[T]) =
     sessionFactory.getCurrentSession.get(evidence.erasure, id).asInstanceOf[T]
 
   @Transactional

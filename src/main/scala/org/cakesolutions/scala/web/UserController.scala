@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller
 import org.cakesolutions.scala.services.EntityService
 import org.springframework.beans.factory.annotation.Autowired
 import org.cakesolutions.scala.domain.{Page, User}
-import org.springframework.web.bind.annotation.{ModelAttribute, RequestMethod, RequestMapping}
 import org.springframework.validation.BindingResult
 import org.springframework.ui.Model
 import javax.validation.Valid
+import org.springframework.web.bind.annotation.{PathVariable, ModelAttribute, RequestMethod, RequestMapping}
 
 /**
  * @author janmachacek
@@ -15,9 +15,19 @@ import javax.validation.Valid
 @Controller
 @RequestMapping(Array("/users"))
 class UserController @Autowired() (private val entityService: EntityService) {
-  implicit val everything = Page(0, Int.MaxValue)
+  implicit def everything = Page(0, Int.MaxValue)
 
-  @RequestMapping(value = Array("/index"), method = Array(RequestMethod.GET))
+  @RequestMapping(value = Array("/"), method = Array(RequestMethod.POST))
+  def save(@Valid @ModelAttribute user: User, result: BindingResult) = {
+    if (result.hasErrors) {
+      "users/edit"
+    } else {
+      entityService.save(user)
+      "redirect:/users/"
+    }
+  }
+
+  @RequestMapping(value = Array("/"), method = Array(RequestMethod.GET))
   def index(model: Model) = {
     model.addAttribute(entityService.find[User])
     "users/index"
@@ -29,13 +39,16 @@ class UserController @Autowired() (private val entityService: EntityService) {
     "users/edit"
   }
 
-  @RequestMapping(value = Array("/index"), method = Array(RequestMethod.POST))
-  def save(@Valid @ModelAttribute user: User, result: BindingResult) = {
-    if (result.hasErrors) {
-      "users/edit"
-    } else {
-      entityService.save(user)
-      "redirect:/users/index.html"
-    }
+  @RequestMapping(value = Array("/{id}"), method = Array(RequestMethod.DELETE))
+  def delete(@PathVariable id: Long) = {
+    entityService.delete[User](id)
+    "redirect:/users/"
   }
+  
+  @RequestMapping(value = Array("/{id}"), method = Array(RequestMethod.GET))
+  def view(@PathVariable id: Long, model: Model) = {
+    model.addAttribute(entityService.get[User](id))
+    "users/edit"
+  }
+
 }

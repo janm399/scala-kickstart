@@ -3,6 +3,8 @@
 
 <html>
 <head>
+	<link rel="stylesheet" href="/css/jquery-ui-1.8.5.custom.css" type="text/css">
+	<link rel="stylesheet" href="/css/main.css" type="text/css">
 	<title>All users</title>
 </head>
 <body>
@@ -18,7 +20,12 @@
 			<td><c:out value="${u.id}"/></td>
 			<td><c:out value="${u.firstName}"/></td>
 			<td><c:out value="${u.lastName}"/></td>
-			<td><a href="users/${u.id}.html">Edit</a></td>
+			<td><a href="${u.id}.html">Edit</a>
+				<form action="${u.id}.html" method="post">
+					<input type="hidden" name="_method" value="delete"/>
+					<input type="submit" name="delete" value="Delete"/>
+				</form>
+			</td>
 		</tr>
 	</c:forEach>
 </table>
