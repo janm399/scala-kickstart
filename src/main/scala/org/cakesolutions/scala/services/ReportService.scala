@@ -26,7 +26,9 @@ class ReportService @Autowired() (private val sessionFactory: SessionFactory) {
     file
   }
   def fileToData(file: File) = io { Source.fromFile(file).toArray }
-  def dataToFile(data: IO[Data])(file: File) = io { println("Written " + data.unsafePerformIO.toList + " to " + file) }
+  def dataToFile(data: IO[Data])(file: File) = io {
+    println("Written " + new String(data.unsafePerformIO) + " to " + file)
+  }
 
   @Transactional(readOnly = true)
   def get(id: Long) = {
