@@ -1,6 +1,6 @@
 <!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
 <aspectj>
-	<weaver options="-verbose -debug -showWeaveInfo">
+	<weaver>
 		<include within="org.cakesolutions..*"/>
 		<dump within="org.cakesolutions..*"/>
 	</weaver>

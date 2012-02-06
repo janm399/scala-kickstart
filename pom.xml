@@ -133,8 +133,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.specs2</groupId>
-			<artifactId>specs2-spring_${scala.version}</artifactId>
-			<version>0.3</version>
+			<artifactId>spring_${scala.version}</artifactId>
+			<version>0.4</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

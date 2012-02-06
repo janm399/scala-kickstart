@@ -3,8 +3,8 @@
 
 <html>
 <head>
-	<link rel="stylesheet" href="/css/jquery-ui-1.8.5.custom.css" type="text/css">
-	<link rel="stylesheet" href="/css/main.css" type="text/css">
+	<link rel="stylesheet" href="/css/jquery-ui-1.8.5.custom.css" type="text/css"/>
+	<link rel="stylesheet" href="/css/main.css" type="text/css"/>
 	<title>All users</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
 		<td>&nbsp;</td>
 	</tr>
 	<c:forEach items="${userList}" var="u">
-		<tr>
+		<tr class="row">
 			<td><c:out value="${u.id}"/></td>
 			<td><c:out value="${u.firstName}"/></td>
 			<td><c:out value="${u.lastName}"/></td>

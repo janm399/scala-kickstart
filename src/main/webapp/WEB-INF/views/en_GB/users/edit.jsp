@@ -4,8 +4,8 @@
 
 <html>
 <head>
-	<link rel="stylesheet" href="/css/jquery-ui-1.8.5.custom.css" type="text/css">
-	<link rel="stylesheet" href="/css/main.css" type="text/css">
+	<link rel="stylesheet" href="/css/jquery-ui-1.8.5.custom.css" type="text/css"/>
+	<link rel="stylesheet" href="/css/main.css" type="text/css"/>
 	<title>Users</title>
 </head>
 <body>

@@ -38,3 +38,4 @@ tm.out
 tmlog*.log
 *.tm*.epoch
 out
+_ajdump/

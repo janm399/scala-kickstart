@@ -9,7 +9,7 @@
 	<context:annotation-config/>
 	<context:component-scan base-package="org.cakesolutions.scala.web"/>
 	<mvc:annotation-driven/>
-	<mvc:default-servlet-handler/>
+	<!--<mvc:default-servlet-handler/>-->
 	<mvc:resources mapping="/css/*" location="/WEB-INF/css/" cache-period="1"/>
 	<mvc:resources mapping="/js/*" location="/WEB-INF/js/" cache-period="1"/>
 
