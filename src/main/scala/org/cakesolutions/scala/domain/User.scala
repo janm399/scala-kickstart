@@ -26,5 +26,6 @@ case class User() {
   @BeanProperty
   @Size(min = 2, max = 50)
   var lastName: String = _
-
+  @BeanProperty
+  var password: String = _
 }
