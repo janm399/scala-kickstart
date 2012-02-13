@@ -19,6 +19,14 @@ class EntityServiceSpec extends Specification with BeanTables with HibernateData
   "find locates the inserted objects" in {
     "username" | "firstName" | "lastName" |
      "janm"   !! "Jan"       ! "Machacek" |
+     "marco"  !! "Marc"      ! "Owen"     |> { 
+      u: User =>
+      println(u)
+      success
+    }
+
+    "username" | "firstName" | "lastName" |
+     "janm"   !! "Jan"       ! "Machacek" |
      "marco"  !! "Marc"      ! "Owen"     |> insert[User]
     
     entityService.get[User](1L) must_== (new User() {username = "janm"; firstName = "Jan"; lastName = "Machacek"})
