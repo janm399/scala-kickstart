@@ -5,12 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.specs2.spring.{HibernateDataAccess, BeanTables, Specification}
 import org.springframework.test.context.ContextConfiguration
 import org.cakesolutions.scala.domain.{Page, User}
+import org.specs2.spring.annotation.DataSource
+import org.hsqldb.jdbc.JDBCDriver
 
 /**
  * -javaagent:/Users/janmachacek/.m2/repository/org/springframework/spring-instrument/3.1.0.RELEASE/spring-instrument-3.1.0.RELEASE.jar
  *
  * @author janmachacek
  */
+@DataSource(name = "java:comp/env/jdbc/ds", driverClass = classOf[JDBCDriver])
 @ContextConfiguration(Array("classpath*:/META-INF/spring/module-context.xml"))
 class EntityServiceSpec extends Specification with BeanTables with HibernateDataAccess {
   @Autowired implicit var sessionFactory: SessionFactory = _
@@ -19,7 +22,7 @@ class EntityServiceSpec extends Specification with BeanTables with HibernateData
   "find locates the inserted objects" in {
     "username" | "firstName" | "lastName" |
      "janm"   !! "Jan"       ! "Machacek" |
-     "marco"  !! "Marc"      ! "Owen"     |> { 
+     "marco"  !! "Marc"      ! "Owen"     |> {
       u: User =>
       println(u)
       success
