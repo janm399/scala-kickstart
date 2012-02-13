@@ -7,13 +7,13 @@ import org.springframework.test.context.ContextConfiguration
 import org.cakesolutions.scala.domain.{Page, User}
 import org.specs2.spring.annotation.DataSource
 import org.hsqldb.jdbc.JDBCDriver
+import org.specs2.execute.Result
 
 /**
  * -javaagent:/Users/janmachacek/.m2/repository/org/springframework/spring-instrument/3.1.0.RELEASE/spring-instrument-3.1.0.RELEASE.jar
  *
  * @author janmachacek
  */
-@DataSource(name = "java:comp/env/jdbc/ds", driverClass = classOf[JDBCDriver])
 @ContextConfiguration(Array("classpath*:/META-INF/spring/module-context.xml"))
 class EntityServiceSpec extends Specification with BeanTables with HibernateDataAccess {
   @Autowired implicit var sessionFactory: SessionFactory = _
@@ -27,6 +27,14 @@ class EntityServiceSpec extends Specification with BeanTables with HibernateData
       println(u)
       success
     }
+
+    val rows =
+    "username" | "firstName" | "lastName" |
+     "janm"   !! "Jan"       ! "Machacek" |
+     "marco"  !! "Marc"      ! "Owen"     |< (classOf[User])
+
+    val m: List[Result] = rows.map { u => success.asInstanceOf[Result] }
+    m.fold(success){(r1: Result, r2: Result) => r2 }
 
     "username" | "firstName" | "lastName" |
      "janm"   !! "Jan"       ! "Machacek" |
