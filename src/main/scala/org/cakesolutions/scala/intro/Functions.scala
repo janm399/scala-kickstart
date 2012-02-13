@@ -15,6 +15,7 @@ object Functions {
   
   def main(args: Array[String]) {
     // val f: Double => Double = (d: Double) => d * d
+    val multiple = (n: Int) => (i: Int) => i * n
     val f = (x: Double, y: Double) => x * y
     val fWithXEq5 = f(5, _: Double)
     val oneTimeX = curry(1)_
