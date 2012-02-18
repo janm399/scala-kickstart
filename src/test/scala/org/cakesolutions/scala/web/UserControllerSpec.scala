@@ -3,7 +3,7 @@ package org.cakesolutions.scala.web
 import org.hibernate.SessionFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.specs2.spring.{BeanTables, HibernateDataAccess}
-import org.specs2.spring.web.{Xhtml, WebContextConfiguration, Specification}
+import org.specs2.spring.web.{Raw, Xhtml, WebContextConfiguration, Specification}
 
 /**
  * -javaagent:/Users/janmachacek/.m2/repository/org/springframework/spring-instrument/3.1.0.RELEASE/spring-instrument-3.1.0.RELEASE.jar
@@ -18,6 +18,10 @@ class UserControllerSpec extends Specification with BeanTables with HibernateDat
   @Autowired implicit var sessionFactory: SessionFactory = _
 
   "adding a user should then list it" in {
+    val r = Raw(get)("foo")
+
+    r.body
+
     val add = Xhtml(get)("/users/add")
     add.body << ("#username", "janm")
     add.body << ("#firstName", "Jan")
