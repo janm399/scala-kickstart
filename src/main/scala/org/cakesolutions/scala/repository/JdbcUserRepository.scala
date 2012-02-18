@@ -116,7 +116,7 @@ object JdbcTemplateCounterpart {
 }
 
 /**
- * 
+ *
  *
  * @author Jan Machacek
  */
